@@ -1,7 +1,6 @@
 void setup() {
  timer1_pwm_init();
- 
-// Serial.begin(9600);
+ Serial.begin(9600);
 }
 
 void timer1_pwm_init() // Udkommenter de linjer, der ikke skal bruges
@@ -31,7 +30,7 @@ void timer1_pwm_init() // Udkommenter de linjer, der ikke skal bruges
  OCR1A = 20000; // Top i mode 15
 // enable pin som output:
  pinMode (10, OUTPUT); // Compare-B-output
-// pinMode (9, OUTPUT); // Compare-A-output
+ pinMode (9, OUTPUT); // Compare-A-output
 }
 
 
@@ -40,7 +39,15 @@ void loop() {
  for(int i = 20000; i > 0; i=i-1000){
   OCR1B = i;
   delay(100);
+  Serial.println(OCR1B);
  }
+
+ for(int i = 0; i< 20000; i=i+1000){
+  OCR1B = i;
+  delay(100);
+  Serial.println(OCR1B);
+ }
+
  
 /*OCR1B = 1000;
   delay(500);
